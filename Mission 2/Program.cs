@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Author: Austin Cox
+using System;
 
 namespace Mission_2
 {
@@ -6,21 +7,25 @@ namespace Mission_2
     {
         static void Main(string[] args)
         {
-            
+            // intro to program
             Console.WriteLine("Welcome to the dice throwing simulator!" + Environment.NewLine + "How many dice would you like to roll?: ");
             
+            //set variable to number of rolls desired
             int rollNum = Convert.ToInt32(Console.ReadLine());
 
+            //instantiate random number variable and array to hold roll counts
             Random r = new Random();
 
             int[] blah = new int[12];
 
-
+            //fill array with 0's
             for (int i = 0; i < 12; i++)
             {
                 blah[i] = 0;
             }
 
+
+            //roll the two dice x amount of times (where x equals desired number of rolls) and increment array number counts accordingly
             for (int i = 0; i < rollNum; i++)
             {
                 int roll = r.Next(6);
@@ -30,7 +35,7 @@ namespace Mission_2
 
             }
 
-
+            //display results and calculate histogram (I just KNOW there is a better way to do this with a loop but I got this to work and didn't have time to fiddle with it more)
             Console.WriteLine("DICE ROLLING SIMULATION RESULTS" + Environment.NewLine + "Each '*' represents 1 % of the total number of rolls." + Environment.NewLine + "Total number of rolls = " + rollNum);
 
             for (int i = 0; i < 11; i++)
